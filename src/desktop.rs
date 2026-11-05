@@ -16,8 +16,8 @@ use windows_sys::Win32::System::DataExchange::COPYDATASTRUCT;
 use windows_sys::Win32::System::LibraryLoader::GetModuleHandleW;
 use windows_sys::Win32::System::Threading::GetCurrentThreadId;
 use windows_sys::Win32::UI::HiDpi::{
-    DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2, GetDpiForSystem, GetSystemMetricsForDpi,
-    SetThreadDpiAwarenessContext,
+    DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2, GetDpiForSystem, GetDpiForWindow,
+    GetSystemMetricsForDpi, SetThreadDpiAwarenessContext,
 };
 use windows_sys::Win32::UI::Input::KeyboardAndMouse::*;
 use windows_sys::Win32::UI::Shell::*;
@@ -35,6 +35,7 @@ const NIN_KEYSELECT: u32 = NIN_SELECT | NINF_KEY; // shellapi.h macro
 const TRAY_RETRY_TIMER: usize = 1;
 const CAPTURE_HIDE_TIMER: usize = 2;
 const CAPTURE_HIDE_DELAY_MS: u32 = 200;
+const CAPTURE_OUTLINE_COLOR: u32 = 0x0000_d4ff; // COLORREF for #ffd400
 const APP_ICON_ID: usize = 1; // RT_GROUP_ICON from build.rs
 const MENU_CAPTURE: usize = 1;
 const MENU_CLIPBOARD: usize = 2;
@@ -1077,7 +1078,8 @@ unsafe extern "system" fn overlay_proc(
                             .anchor
                             .get()
                             .map(|anchor| selection_rect(anchor, state.cursor.get()));
-                        screen.paint(dc, rect);
+                        let outline_width = ((GetDpiForWindow(window) + 24) / 48).max(2) as i32;
+                        screen.paint(dc, rect, outline_width);
                     }
                     EndPaint(window, &paint);
                     return 0;
@@ -1138,6 +1140,32 @@ fn selection_rect(first: POINT, last: POINT) -> RECT {
         right: first.x.max(last.x),
         top: first.y.min(last.y),
         bottom: first.y.max(last.y),
+    }
+}
+
+fn paint_selection_outline(target: HDC, mut rect: RECT, width: i32) {
+    unsafe {
+        // A dark edge keeps the yellow frame visible over yellow content.
+        let edge = RECT {
+            left: rect.left - 1,
+            top: rect.top - 1,
+            right: rect.right + 1,
+            bottom: rect.bottom + 1,
+        };
+        FrameRect(target, &edge, GetStockObject(BLACK_BRUSH));
+        let previous = SetDCBrushColor(target, CAPTURE_OUTLINE_COLOR);
+        let brush = GetStockObject(DC_BRUSH);
+        for _ in 0..width {
+            if rect.left >= rect.right || rect.top >= rect.bottom {
+                break;
+            }
+            FrameRect(target, &rect, brush);
+            rect.left += 1;
+            rect.top += 1;
+            rect.right -= 1;
+            rect.bottom -= 1;
+        }
+        SetDCBrushColor(target, previous);
     }
 }
 
@@ -1458,7 +1486,7 @@ impl Screen {
         crop_pixels(pixels, self.width as usize, rect)
     }
 
-    fn paint(&self, target: HDC, selection: Option<RECT>) {
+    fn paint(&self, target: HDC, selection: Option<RECT>, outline_width: i32) {
         unsafe {
             BitBlt(
                 target,
@@ -1489,7 +1517,10 @@ impl Screen {
                     AlphaFormat: 0,
                 },
             );
-            if let Some(rect) = selection {
+            if let Some(rect) = selection
+                && rect.left < rect.right
+                && rect.top < rect.bottom
+            {
                 BitBlt(
                     target,
                     rect.left,
@@ -1501,7 +1532,7 @@ impl Screen {
                     rect.top,
                     SRCCOPY,
                 );
-                FrameRect(target, &rect, GetStockObject(WHITE_BRUSH));
+                paint_selection_outline(target, rect, outline_width);
             }
         }
     }
@@ -1567,6 +1598,48 @@ mod tests {
         let result = crop_pixels(&frame, 2, rect).unwrap().into_rgb8();
         assert_eq!(result.dimensions(), (1, 2));
         assert_eq!(result.as_raw(), &[6, 5, 4, 12, 11, 10]);
+    }
+
+    #[test]
+    fn selection_paints_yellow_edges_without_changing_the_capture() {
+        let (width, height) = (24, 18);
+        let (source, preview) = unsafe {
+            let dc = GetDC(null_mut());
+            assert!(!dc.is_null());
+            let source = Bitmap::create(dc, |_| CreateCompatibleBitmap(dc, width, height));
+            let preview = Bitmap::create(dc, |_| CreateCompatibleBitmap(dc, width, height));
+            ReleaseDC(null_mut(), dc);
+            (source.unwrap(), preview.unwrap())
+        };
+        let screen = unsafe {
+            assert_ne!(PatBlt(source.dc, 0, 0, width, height, WHITENESS), 0);
+            Screen::copy_screen(
+                source.dc,
+                0,
+                0,
+                width,
+                height,
+                (width * height * 4) as usize,
+            )
+            .unwrap()
+        };
+        let rect = selection_rect(POINT { x: 18, y: 14 }, POINT { x: 5, y: 4 });
+        screen.paint(preview.dc, Some(rect), 3);
+        for (x, y) in [(5, 8), (7, 8), (15, 8), (17, 8), (10, 6), (10, 11)] {
+            assert_eq!(unsafe { GetPixel(preview.dc, x, y) }, CAPTURE_OUTLINE_COLOR);
+        }
+        assert_eq!(unsafe { GetPixel(preview.dc, 4, 8) }, 0);
+        assert_eq!(unsafe { GetPixel(preview.dc, 10, 9) }, 0x00ff_ffff);
+        let masked = unsafe { GetPixel(preview.dc, 3, 8) };
+        assert!(masked > 0 && masked < 0x00ff_ffff);
+        let capture = screen.crop(rect).unwrap().into_rgb8();
+        assert_eq!(capture.dimensions(), (13, 10));
+        assert!(capture.as_raw().iter().all(|channel| *channel == 255));
+
+        let tiny = selection_rect(POINT { x: 1, y: 1 }, POINT { x: 0, y: 0 });
+        screen.paint(preview.dc, Some(tiny), 3);
+        assert_eq!(unsafe { GetPixel(preview.dc, 0, 0) }, CAPTURE_OUTLINE_COLOR);
+        assert_eq!(unsafe { GetPixel(preview.dc, 5, 8) }, masked);
     }
 
     #[test]
