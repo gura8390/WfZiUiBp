@@ -1,2 +1,5 @@
 # The package checks upstream model and dictionary bytes against their SHA-256 values.
 models/** -text
+
+# Preserve the exact bytes of the original retest files.
+verification/retest-20261106/** -text

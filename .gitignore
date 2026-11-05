@@ -8,3 +8,10 @@
 !/verification/desktop-idle-v020-release.json
 !/verification/a11y-release.json
 !/verification/http-release.json
+!/verification/retest-20261106/
+/verification/retest-20261106/*
+!/verification/retest-20261106/复测报告.md
+!/verification/retest-20261106/ocr-4threads.json
+!/verification/retest-20261106/ocr-4threads-repeat.json
+!/verification/retest-20261106/ocr-16threads.json
+!/verification/retest-20261106/rust-tray-idle.json

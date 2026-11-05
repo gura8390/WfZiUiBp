@@ -43,6 +43,7 @@ HTTP 服务提供 Umi 风格的 `/api/ocr`、`/api/ocr/get_options`、`/api/qrco
 在源码目录运行构建和测试命令。构建使用 Rust 1.95 及以上、MSVC x64 和 Windows SDK。脚本先执行锁定依赖的 release 测试和编译，再打包程序、模型与运行库。发布构建可用 `-RemapBuildPaths` 替换编译器记录的本机路径。便携目录与 ZIP 各有 SHA-256 清单。安装包的构建步骤见 [安装程序源码说明](installer/README.md)。
 
 - [0.2.0 性能对照](docs/性能对照.md)
+- [2026-11-06 本机复测报告与原始数据](verification/retest-20261106/复测报告.md)
 - [0.2.0 功能与验证范围](docs/验证范围.md)
 
 兼容范围以本说明列出的工作流和接口为准。每种功能页在本版保留一个标签。原版的独立重复标签、Python/QML 插件、完整配置迁移和文档逐页范围属于仍有差异的部分。

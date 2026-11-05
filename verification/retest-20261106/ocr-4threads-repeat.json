@@ -1,0 +1,5584 @@
+{
+  "metadata": {
+    "utc": "2026-11-05T19:57:43Z",
+    "os": "Windows-11-10.0.26100-SP0",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpus": 32,
+    "threads_per_engine": 4,
+    "trials": 3,
+    "repetitions_per_trial": 6,
+    "idle_seconds": 2.0,
+    "sample_interval_seconds": 0.025,
+    "cpu_peak_window_seconds": 0.25,
+    "options": {
+      "ocr.language": "models/config_chinese.txt",
+      "ocr.cls": false,
+      "ocr.limit_side_len": 960,
+      "tbpu.parser": "none",
+      "tbpu.ignoreArea": [],
+      "data.format": "dict"
+    },
+    "startup_retries": [],
+    "sha256": {
+      "umi": "330b87a5f4f72ce07b41b7bec31246e80da89e51b6847ecd6bb0a4ad8a8c4742",
+      "paddle_engine": "965e5249ba6bf883004532434e7983de41d737b70335d1d64c56788822a019b6",
+      "rust": "4a2c96ac2e4b81e6ebc2dd24609b03398971b64528ce80ebe2d448aa31305d57",
+      "runtime_sidecars": {
+        "msvcp140.dll": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+        "msvcp140_1.dll": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+        "vcruntime140.dll": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+        "vcruntime140_1.dll": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+      },
+      "model_manifests": {
+        "model-provenance.json": "2e36d5962c0f4a4ab5d315a5e92b865bcbedc62f78323377051d282ef872b130",
+        "runtime-provenance.json": "3956a53017d4c34bddb21d9e4fd1c0452e07716578365904768ea7452824edc6",
+        "v6-provenance.json": "126a9138fece93e0ae57e0d7b275e965bad4b3a76cfa2f9c59031f0a8073ce67"
+      },
+      "active_model_assets": {
+        "det.onnx": "75aede9eaf29cc989067b5a9d6a8f0fa347f00d9fc71a573b7762c46340c209e",
+        "rec_chinese.onnx": "18fab497578088c819ee48c1b21607ee6980fcb19f406ea5d108811a78e75175",
+        "dict_chinese.txt": "28b2362ad4ab2dc38769aa72feb535e3a9ddb3fd2a7585a05920e6393b1dc7f7",
+        "onnxruntime.dll": "d9b87625301f25cf2a8f6e5a75f81c8ae902a9feef48336d7053e86a62c24304",
+        "onnxruntime_providers_shared.dll": "a7d0b1d9529777e860574643f307e949a8bf7d96f004fd326ed5b6894ad660ec",
+        "det_v6_tiny.onnx": "193bab7a04fca699a6c82e6abb5b81bdb28177f0abd4062552b04908dafb19f8",
+        "rec_v6_tiny.onnx": "9ef676d6ed3c88256a2d92c640c44f25b0c40947e111b14b8be8f594091563e6",
+        "dict_v6_tiny.txt": "c5cbe34ef40c29c4df07ed012bf96569cb69a2d2a01a07027e9f13cb832bd9cd"
+      }
+    },
+    "method": "Fresh separate processes; Umi portable copy with native Qt, main window hidden and MKLDNN enabled; Rust HTTP mode; F4 helper excluded; no disk-cache purge; process-tree working set, private memory and user/kernel CPU sampled at roughly 25 ms.",
+    "variant_options": {
+      "umi": {
+        "ocr.language": "models/config_chinese.txt",
+        "ocr.cls": false,
+        "ocr.limit_side_len": 960,
+        "tbpu.parser": "none",
+        "tbpu.ignoreArea": [],
+        "data.format": "dict"
+      },
+      "rust": {
+        "ocr.language": "models/config_chinese.txt",
+        "ocr.cls": false,
+        "ocr.limit_side_len": 960,
+        "tbpu.parser": "none",
+        "tbpu.ignoreArea": [],
+        "data.format": "dict"
+      },
+      "rust_v6_tiny": {
+        "ocr.language": "v6_tiny",
+        "ocr.cls": false,
+        "ocr.limit_side_len": 960,
+        "tbpu.parser": "none",
+        "tbpu.ignoreArea": [],
+        "data.format": "dict"
+      }
+    }
+  },
+  "fixtures": [
+    {
+      "name": "compact",
+      "size": [
+        540,
+        160
+      ],
+      "expected": "离线文字识别\n本地测试 ABC 123",
+      "sha256": "cd0888494df5715ccd1349ab03e1cdb60934b586646f289125b67e75fdb000e3"
+    },
+    {
+      "name": "english",
+      "size": [
+        820,
+        270
+      ],
+      "expected": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+      "sha256": "b04e5e84d6bc1c7b918ccf4c9bec944315b396199c3db80bad64c0a950a97fba"
+    },
+    {
+      "name": "chinese",
+      "size": [
+        960,
+        440
+      ],
+      "expected": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号 3618027",
+      "sha256": "1b4ff1c661591389a2a764442632ef4ff3f30b1c39cdd8d141ad57da628adff7"
+    },
+    {
+      "name": "dense",
+      "size": [
+        1600,
+        900
+      ],
+      "expected": "第01行　系统功能和性能测试　OCR 3585\n第02行　系统功能和性能测试　OCR 4098\n第03行　系统功能和性能测试　OCR 4611\n第04行　系统功能和性能测试　OCR 5124\n第05行　系统功能和性能测试　OCR 5637\n第06行　系统功能和性能测试　OCR 6150\n第07行　系统功能和性能测试　OCR 6663\n第08行　系统功能和性能测试　OCR 7176\n第09行　系统功能和性能测试　OCR 7689\n第10行　系统功能和性能测试　OCR 8202\n第11行　系统功能和性能测试　OCR 8715",
+      "sha256": "571a1a7f64b22f6f415ca64b673b4fb1c2cb9e4f5d6767cef951d8538db18aef"
+    },
+    {
+      "name": "dim",
+      "size": [
+        920,
+        280
+      ],
+      "expected": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+      "sha256": "f0c8706660b208507166200e50da20367e3e5023d718eff231def282f0302a22"
+    },
+    {
+      "name": "tiny_noise",
+      "size": [
+        680,
+        220
+      ],
+      "expected": "账户余额 ￥1284.76\n项目 0O1Il-8B5S\n混合字形：截取與識別\n參數版本 PP-OCR v3/v6",
+      "sha256": "9651964a3888ebdf4daf25f90053c534ebc63cb1e08170ec4b8f4c2764ec1fab"
+    },
+    {
+      "name": "tilted",
+      "size": [
+        890,
+        456
+      ],
+      "expected": "倾斜票据 316.82 元\n款项状态：已支付\nREF A8W-9235-OM",
+      "sha256": "cd25d0d41155ce62ae3d83b7c8c709177915cc2e45ba8e9c6f203fcb3b62133e"
+    },
+    {
+      "name": "blank",
+      "size": [
+        900,
+        450
+      ],
+      "expected": "",
+      "sha256": "ba729bfbe5256c41d499cc7d90cf08547a5df1ea150b6036a5234a8dc0e5808b"
+    }
+  ],
+  "summary": {
+    "umi": {
+      "ready_p50_ms": 2031.686,
+      "first_p50_ms": 726.778,
+      "warm_p50_ms": 206.4145,
+      "warm_p95_ms": 849.861,
+      "warm_p99_ms": 911.703,
+      "warm_max_ms": 966.287,
+      "warm_throughput_images_s": 3.6922495630453405,
+      "warm_batch_loop_images_s": 3.66337635601423,
+      "character_error_rate": 0.01978021978021978,
+      "memory_median_mib": {
+        "idle": {
+          "ws_mib": 188.781,
+          "private_mib": 219.359
+        },
+        "loaded": {
+          "ws_mib": 1114.281,
+          "private_mib": 1711.148
+        },
+        "peak": {
+          "ws_mib": 1132.297,
+          "private_mib": 1755.203
+        }
+      },
+      "cpu": {
+        "startup_cpu_ms_p50": 1796.875,
+        "first_cpu_ms_p50": 1093.75,
+        "warm_cpu_ms_per_image": 1651.3671875,
+        "warm_user_cpu_ms_per_image": 1393.8802083333333,
+        "warm_kernel_cpu_ms_per_image": 257.4869791666667,
+        "warm_peak_250ms_logical_cores_max": 7.269839524484536,
+        "phases": {
+          "startup": {
+            "average_logical_cores": 0.8823945739576131,
+            "average_machine_percent": 2.757483043617541
+          },
+          "idle": {
+            "average_logical_cores": 0.11618532316178233,
+            "average_machine_percent": 0.3630791348805698
+          },
+          "first": {
+            "average_logical_cores": 1.549598266192849,
+            "average_machine_percent": 4.842494581852653
+          },
+          "warm": {
+            "average_logical_cores": 5.9990653276170605,
+            "average_machine_percent": 18.747079148803316
+          },
+          "loaded_idle": {
+            "average_logical_cores": 0.34084338982342033,
+            "average_machine_percent": 1.0651355931981885
+          }
+        }
+      },
+      "per_fixture_p50_ms": {
+        "compact": 116.843,
+        "english": 209.9925,
+        "chinese": 322.1245,
+        "dense": 842.2745,
+        "dim": 214.899,
+        "tiny_noise": 173.47199999999998,
+        "tilted": 243.96800000000002,
+        "blank": 157.47
+      },
+      "samples": 144
+    },
+    "rust": {
+      "ready_p50_ms": 36.994,
+      "first_p50_ms": 208.214,
+      "warm_p50_ms": 165.16500000000002,
+      "warm_p95_ms": 845.912,
+      "warm_p99_ms": 999.585,
+      "warm_max_ms": 1001.781,
+      "warm_throughput_images_s": 4.059375126855472,
+      "warm_batch_loop_images_s": 4.029496214502278,
+      "character_error_rate": 0.017582417582417582,
+      "memory_median_mib": {
+        "idle": {
+          "ws_mib": 10.082,
+          "private_mib": 2.727
+        },
+        "loaded": {
+          "ws_mib": 204.406,
+          "private_mib": 235.387
+        },
+        "peak": {
+          "ws_mib": 215.789,
+          "private_mib": 246.602
+        }
+      },
+      "cpu": {
+        "startup_cpu_ms_p50": 0.0,
+        "first_cpu_ms_p50": 250.0,
+        "warm_cpu_ms_per_image": 698.1336805555555,
+        "warm_user_cpu_ms_per_image": 655.8159722222222,
+        "warm_kernel_cpu_ms_per_image": 42.317708333333336,
+        "warm_peak_250ms_logical_cores_max": 3.9023141957540433,
+        "phases": {
+          "startup": {
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "idle": {
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "average_logical_cores": 1.0753356499389273,
+            "average_machine_percent": 3.3604239060591476
+          },
+          "warm": {
+            "average_logical_cores": 2.934548255596003,
+            "average_machine_percent": 9.17046329873751
+          },
+          "loaded_idle": {
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          }
+        }
+      },
+      "per_fixture_p50_ms": {
+        "compact": 78.62299999999999,
+        "english": 165.16500000000002,
+        "chinese": 267.96500000000003,
+        "dense": 839.482,
+        "dim": 167.7115,
+        "tiny_noise": 136.122,
+        "tilted": 178.4355,
+        "blank": 94.7705
+      },
+      "samples": 144
+    },
+    "rust_v6_tiny": {
+      "ready_p50_ms": 24.875,
+      "first_p50_ms": 108.636,
+      "warm_p50_ms": 62.260000000000005,
+      "warm_p95_ms": 249.168,
+      "warm_p99_ms": 280.395,
+      "warm_max_ms": 297.144,
+      "warm_throughput_images_s": 12.370500616978719,
+      "warm_batch_loop_images_s": 12.083484086661473,
+      "character_error_rate": 0.004395604395604396,
+      "memory_median_mib": {
+        "idle": {
+          "ws_mib": 10.039,
+          "private_mib": 2.68
+        },
+        "loaded": {
+          "ws_mib": 129.031,
+          "private_mib": 160.961
+        },
+        "peak": {
+          "ws_mib": 140.008,
+          "private_mib": 171.508
+        }
+      },
+      "cpu": {
+        "startup_cpu_ms_p50": 15.625,
+        "first_cpu_ms_p50": 93.75,
+        "warm_cpu_ms_per_image": 172.52604166666666,
+        "warm_user_cpu_ms_per_image": 135.95920138888889,
+        "warm_kernel_cpu_ms_per_image": 36.56684027777778,
+        "warm_peak_250ms_logical_cores_max": 3.233728739467914,
+        "phases": {
+          "startup": {
+            "average_logical_cores": 0.4788824337478424,
+            "average_machine_percent": 1.4965076054620075
+          },
+          "idle": {
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "average_logical_cores": 0.6851665282674689,
+            "average_machine_percent": 2.1411454008358404
+          },
+          "warm": {
+            "average_logical_cores": 2.031398654434703,
+            "average_machine_percent": 6.348120795108447
+          },
+          "loaded_idle": {
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          }
+        }
+      },
+      "per_fixture_p50_ms": {
+        "compact": 25.974,
+        "english": 56.44,
+        "chinese": 91.642,
+        "dense": 246.291,
+        "dim": 55.552,
+        "tiny_noise": 47.2675,
+        "tilted": 82.4525,
+        "blank": 51.567
+      },
+      "samples": 144
+    }
+  },
+  "trials": {
+    "umi": [
+      {
+        "ready_ms": 2022.768,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 727.712,
+          "server_ms": 107.469,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228744.1072469,
+          "ws_mib": 188.699,
+          "private_mib": 219.41,
+          "cpu_user_seconds": 1.328125,
+          "cpu_kernel_seconds": 0.84375,
+          "processes": [
+            {
+              "pid": 23656,
+              "name": "Umi-OCR.exe",
+              "ws_mib": 188.69921875,
+              "private_mib": 219.41015625,
+              "cpu_user_seconds": 1.328125,
+              "cpu_kernel_seconds": 0.84375
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228761.32121249998,
+          "ws_mib": 1111.402,
+          "private_mib": 1712.297,
+          "cpu_user_seconds": 74.53125,
+          "cpu_kernel_seconds": 16.859375,
+          "processes": [
+            {
+              "pid": 23656,
+              "name": "Umi-OCR.exe",
+              "ws_mib": 190.1015625,
+              "private_mib": 209.41796875,
+              "cpu_user_seconds": 1.46875,
+              "cpu_kernel_seconds": 0.9375
+            },
+            {
+              "pid": 43292,
+              "name": "PaddleOCR-json.exe",
+              "ws_mib": 921.30078125,
+              "private_mib": 1502.87890625,
+              "cpu_user_seconds": 73.0625,
+              "cpu_kernel_seconds": 15.921875
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 1132.754,
+          "private_mib": 1743.652
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 2.031427350011654,
+            "cpu_user_seconds": 1.046875,
+            "cpu_kernel_seconds": 0.71875,
+            "cpu_total_seconds": 1.765625,
+            "average_logical_cores": 0.8691548826443981,
+            "average_machine_percent": 2.7161090082637442
+          },
+          "idle": {
+            "wall_seconds": 2.018897250003647,
+            "cpu_user_seconds": 0.28125,
+            "cpu_kernel_seconds": 0.125,
+            "cpu_total_seconds": 0.40625,
+            "average_logical_cores": 0.20122371259818503,
+            "average_machine_percent": 0.6288241018693282
+          },
+          "first": {
+            "wall_seconds": 0.7458206499868538,
+            "cpu_user_seconds": 0.8125,
+            "cpu_kernel_seconds": 0.359375,
+            "cpu_total_seconds": 1.171875,
+            "average_logical_cores": 1.5712557704330874,
+            "average_machine_percent": 4.910174282603398
+          },
+          "warm": {
+            "wall_seconds": 13.327333599998383,
+            "cpu_user_seconds": 66.0625,
+            "cpu_kernel_seconds": 13.765625,
+            "cpu_total_seconds": 79.828125,
+            "average_logical_cores": 5.98980466730492,
+            "average_machine_percent": 18.718139585327876
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.016511599998921,
+            "cpu_user_seconds": 0.46875,
+            "cpu_kernel_seconds": 0.234375,
+            "cpu_total_seconds": 0.703125,
+            "average_logical_cores": 0.3486838359870462,
+            "average_machine_percent": 1.0896369874595195
+          },
+          "warm_peak_250ms_logical_cores": 7.16274466581594
+        },
+        "memory_sample_count": 444,
+        "batch_seconds": 13.312202799977968,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 78.065,
+            "server_ms": 48.151,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 103.681,
+            "server_ms": 89.207,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 140.75,
+            "server_ms": 139.404,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 402.355,
+            "server_ms": 374.719,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 102.851,
+            "server_ms": 85.077,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 139.438,
+            "server_ms": 113.046,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 170.516,
+            "server_ms": 144.694,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 190.436,
+            "server_ms": 151.112,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 217.482,
+            "server_ms": 197.939,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 343.24,
+            "server_ms": 326.346,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 815.22,
+            "server_ms": 812.546,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 230.43,
+            "server_ms": 199.852,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 160.271,
+            "server_ms": 159.011,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 228.644,
+            "server_ms": 222.128,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 144.473,
+            "server_ms": 142.208,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 136.527,
+            "server_ms": 100.985,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 324.268,
+            "server_ms": 318.24,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 853.383,
+            "server_ms": 833.765,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 221.076,
+            "server_ms": 207.904,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 189.372,
+            "server_ms": 169.758,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 241.705,
+            "server_ms": 239.52,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 184.287,
+            "server_ms": 148.525,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 130.297,
+            "server_ms": 108.346,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 241.201,
+            "server_ms": 210.964,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 966.287,
+            "server_ms": 963.616,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 251.112,
+            "server_ms": 223.201,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 194.95,
+            "server_ms": 176.219,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 246.824,
+            "server_ms": 235.003,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 190.767,
+            "server_ms": 154.125,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 140.73,
+            "server_ms": 117.011,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 255.879,
+            "server_ms": 226.169,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 344.43,
+            "server_ms": 331.112,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 165.119,
+            "server_ms": 163.463,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 137.141,
+            "server_ms": 136.149,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 259.221,
+            "server_ms": 217.55,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 175.833,
+            "server_ms": 162.159,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 103.726,
+            "server_ms": 74.969,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 170.343,
+            "server_ms": 158.073,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 279.533,
+            "server_ms": 268.004,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 870.427,
+            "server_ms": 867.549,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 195.028,
+            "server_ms": 164.488,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 255.573,
+            "server_ms": 228.085,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 165.321,
+            "server_ms": 163.023,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 129.814,
+            "server_ms": 111.292,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 210.699,
+            "server_ms": 209.011,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 378.389,
+            "server_ms": 359.771,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 911.703,
+            "server_ms": 896.017,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 235.023,
+            "server_ms": 227.382,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      },
+      {
+        "ready_ms": 2033.849,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 690.261,
+          "server_ms": 80.95,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228818.46599335,
+          "ws_mib": 188.977,
+          "private_mib": 219.324,
+          "cpu_user_seconds": 1.203125,
+          "cpu_kernel_seconds": 0.921875,
+          "processes": [
+            {
+              "pid": 3556,
+              "name": "Umi-OCR.exe",
+              "ws_mib": 188.9765625,
+              "private_mib": 219.32421875,
+              "cpu_user_seconds": 1.203125,
+              "cpu_kernel_seconds": 0.921875
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228835.3073984,
+          "ws_mib": 1114.281,
+          "private_mib": 1711.148,
+          "cpu_user_seconds": 74.265625,
+          "cpu_kernel_seconds": 15.34375,
+          "processes": [
+            {
+              "pid": 3556,
+              "name": "Umi-OCR.exe",
+              "ws_mib": 190.2890625,
+              "private_mib": 209.3359375,
+              "cpu_user_seconds": 1.390625,
+              "cpu_kernel_seconds": 1.09375
+            },
+            {
+              "pid": 46140,
+              "name": "PaddleOCR-json.exe",
+              "ws_mib": 923.9921875,
+              "private_mib": 1501.8125,
+              "cpu_user_seconds": 72.875,
+              "cpu_kernel_seconds": 14.25
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 1130.75,
+          "private_mib": 1755.203
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 2.043247999972664,
+            "cpu_user_seconds": 1.125,
+            "cpu_kernel_seconds": 0.765625,
+            "cpu_total_seconds": 1.890625,
+            "average_logical_cores": 0.9253037321095111,
+            "average_machine_percent": 2.8915741628422222
+          },
+          "idle": {
+            "wall_seconds": 2.0172513500147033,
+            "cpu_user_seconds": 0.078125,
+            "cpu_kernel_seconds": 0.15625,
+            "cpu_total_seconds": 0.234375,
+            "average_logical_cores": 0.11618532316178233,
+            "average_machine_percent": 0.3630791348805698
+          },
+          "first": {
+            "wall_seconds": 0.7058281000063289,
+            "cpu_user_seconds": 0.8125,
+            "cpu_kernel_seconds": 0.28125,
+            "cpu_total_seconds": 1.09375,
+            "average_logical_cores": 1.549598266192849,
+            "average_machine_percent": 4.842494581852653
+          },
+          "warm": {
+            "wall_seconds": 12.840541949990438,
+            "cpu_user_seconds": 65.328125,
+            "cpu_kernel_seconds": 11.703125,
+            "cpu_total_seconds": 77.03125,
+            "average_logical_cores": 5.9990653276170605,
+            "average_machine_percent": 18.747079148803316
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.0170554000069387,
+            "cpu_user_seconds": 0.5625,
+            "cpu_kernel_seconds": 0.125,
+            "cpu_total_seconds": 0.6875,
+            "average_logical_cores": 0.34084338982342033,
+            "average_machine_percent": 1.0651355931981885
+          },
+          "warm_peak_250ms_logical_cores": 6.999964019527261
+        },
+        "memory_sample_count": 449,
+        "batch_seconds": 12.824980699981097,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 71.922,
+            "server_ms": 55.451,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 100.234,
+            "server_ms": 98.15,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 182.503,
+            "server_ms": 167.48,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 474.431,
+            "server_ms": 460.466,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 130.076,
+            "server_ms": 113.861,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 178.013,
+            "server_ms": 156.598,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 280.207,
+            "server_ms": 279.065,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 170.524,
+            "server_ms": 141.764,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 210.419,
+            "server_ms": 208.277,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 321.815,
+            "server_ms": 321.123,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 823.669,
+            "server_ms": 806.958,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 217.766,
+            "server_ms": 199.925,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 165.11,
+            "server_ms": 165.04,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 241.124,
+            "server_ms": 229.005,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 165.012,
+            "server_ms": 144.334,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 108.955,
+            "server_ms": 103.74,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 322.434,
+            "server_ms": 320.099,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 816.335,
+            "server_ms": 815.61,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 205.716,
+            "server_ms": 203.567,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 176.843,
+            "server_ms": 163.053,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 246.231,
+            "server_ms": 226.759,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 143.553,
+            "server_ms": 138.479,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 114.03,
+            "server_ms": 106.789,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 199.06,
+            "server_ms": 196.913,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 826.92,
+            "server_ms": 815.014,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 226.965,
+            "server_ms": 211.489,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 173.219,
+            "server_ms": 165.525,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 231.198,
+            "server_ms": 227.976,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 142.603,
+            "server_ms": 141.462,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 104.079,
+            "server_ms": 101.3,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 229.138,
+            "server_ms": 195.423,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 319.523,
+            "server_ms": 312.963,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 166.986,
+            "server_ms": 159.738,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 126.006,
+            "server_ms": 124.758,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 231.915,
+            "server_ms": 210.255,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 141.693,
+            "server_ms": 139.737,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 75.637,
+            "server_ms": 74.322,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 155.937,
+            "server_ms": 154.883,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 264.729,
+            "server_ms": 255.541,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 843.924,
+            "server_ms": 808.903,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 196.114,
+            "server_ms": 162.485,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 255.947,
+            "server_ms": 228.556,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 144.791,
+            "server_ms": 145.473,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 134.171,
+            "server_ms": 100.14,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 229.979,
+            "server_ms": 200.28,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 320.646,
+            "server_ms": 318.001,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 858.303,
+            "server_ms": 807.28,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 242.63,
+            "server_ms": 210.412,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      },
+      {
+        "ready_ms": 2031.686,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 726.778,
+          "server_ms": 77.478,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228849.660707,
+          "ws_mib": 188.781,
+          "private_mib": 219.359,
+          "cpu_user_seconds": 1.015625,
+          "cpu_kernel_seconds": 0.921875,
+          "processes": [
+            {
+              "pid": 7440,
+              "name": "Umi-OCR.exe",
+              "ws_mib": 188.78125,
+              "private_mib": 219.359375,
+              "cpu_user_seconds": 1.015625,
+              "cpu_kernel_seconds": 0.90625
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228866.8733709,
+          "ws_mib": 1114.473,
+          "private_mib": 1710.633,
+          "cpu_user_seconds": 78.171875,
+          "cpu_kernel_seconds": 14.953125,
+          "processes": [
+            {
+              "pid": 7440,
+              "name": "Umi-OCR.exe",
+              "ws_mib": 190.19921875,
+              "private_mib": 209.37109375,
+              "cpu_user_seconds": 1.125,
+              "cpu_kernel_seconds": 1.0
+            },
+            {
+              "pid": 39984,
+              "name": "PaddleOCR-json.exe",
+              "ws_mib": 924.2734375,
+              "private_mib": 1501.26171875,
+              "cpu_user_seconds": 77.046875,
+              "cpu_kernel_seconds": 13.9375
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 1132.297,
+          "private_mib": 1765.145
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 2.0363622499862686,
+            "cpu_user_seconds": 0.953125,
+            "cpu_kernel_seconds": 0.84375,
+            "cpu_total_seconds": 1.796875,
+            "average_logical_cores": 0.8823945739576131,
+            "average_machine_percent": 2.757483043617541
+          },
+          "idle": {
+            "wall_seconds": 2.009511750016827,
+            "cpu_user_seconds": 0.0625,
+            "cpu_kernel_seconds": 0.078125,
+            "cpu_total_seconds": 0.140625,
+            "average_logical_cores": 0.06997968536328411,
+            "average_machine_percent": 0.21868651676026285
+          },
+          "first": {
+            "wall_seconds": 0.7382168499752879,
+            "cpu_user_seconds": 0.75,
+            "cpu_kernel_seconds": 0.34375,
+            "cpu_total_seconds": 1.09375,
+            "average_logical_cores": 1.4816107218856,
+            "average_machine_percent": 4.6300335058925
+          },
+          "warm": {
+            "wall_seconds": 13.186064050009008,
+            "cpu_user_seconds": 69.328125,
+            "cpu_kernel_seconds": 11.609375,
+            "cpu_total_seconds": 80.9375,
+            "average_logical_cores": 6.138109119828271,
+            "average_machine_percent": 19.181590999463346
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.0159251999866683,
+            "cpu_user_seconds": 0.453125,
+            "cpu_kernel_seconds": 0.1875,
+            "cpu_total_seconds": 0.640625,
+            "average_logical_cores": 0.3177821280294708,
+            "average_machine_percent": 0.9930691500920963
+          },
+          "warm_peak_250ms_logical_cores": 7.269839524484536
+        },
+        "memory_sample_count": 462,
+        "batch_seconds": 13.170817099977285,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 80.303,
+            "server_ms": 51.69,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 116.411,
+            "server_ms": 100.193,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 192.394,
+            "server_ms": 162.562,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 456.755,
+            "server_ms": 433.849,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 98.274,
+            "server_ms": 97.896,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 137.736,
+            "server_ms": 112.25,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 298.511,
+            "server_ms": 280.862,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 147.732,
+            "server_ms": 145.378,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 247.375,
+            "server_ms": 229.384,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 332.569,
+            "server_ms": 331.53,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 866.484,
+            "server_ms": 841.547,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 212.032,
+            "server_ms": 210.684,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 172.688,
+            "server_ms": 163.613,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 229.287,
+            "server_ms": 226.943,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 182.476,
+            "server_ms": 154.46,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 131.95,
+            "server_ms": 100.105,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 330.192,
+            "server_ms": 328.091,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 840.625,
+            "server_ms": 840.496,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 208.96,
+            "server_ms": 206.4,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 191.164,
+            "server_ms": 162.726,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 240.071,
+            "server_ms": 226.966,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 161.691,
+            "server_ms": 149.285,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 121.429,
+            "server_ms": 102.163,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 207.113,
+            "server_ms": 204.051,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 849.861,
+            "server_ms": 828.437,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 226.501,
+            "server_ms": 207.783,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 173.725,
+            "server_ms": 166.987,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 282.198,
+            "server_ms": 247.686,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 153.249,
+            "server_ms": 150.293,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 127.798,
+            "server_ms": 105.135,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 223.889,
+            "server_ms": 204.725,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 360.999,
+            "server_ms": 344.67,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 203.394,
+            "server_ms": 167.537,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 143.725,
+            "server_ms": 134.135,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 230.519,
+            "server_ms": 214.813,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 148.709,
+            "server_ms": 145.891,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 119.656,
+            "server_ms": 75.803,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 164.906,
+            "server_ms": 161.218,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 265.227,
+            "server_ms": 264.816,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 857.244,
+            "server_ms": 841.595,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 194.173,
+            "server_ms": 165.73,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O111-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 7
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 253.316,
+            "server_ms": 230.999,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 148.135,
+            "server_ms": 146.564,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 105.808,
+            "server_ms": 103.107,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 209.566,
+            "server_ms": 208.5,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 345.545,
+            "server_ms": 330.951,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 835.986,
+            "server_ms": 833.886,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 239.388,
+            "server_ms": 209.748,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      }
+    ],
+    "rust": [
+      {
+        "ready_ms": 30.806,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 216.564,
+          "server_ms": 187.181,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228763.6668275,
+          "ws_mib": 10.922,
+          "private_mib": 2.727,
+          "cpu_user_seconds": 0.015625,
+          "cpu_kernel_seconds": 0.0,
+          "processes": [
+            {
+              "pid": 50984,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 10.921875,
+              "private_mib": 2.7265625,
+              "cpu_user_seconds": 0.015625,
+              "cpu_kernel_seconds": 0.0
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228778.60523815,
+          "ws_mib": 205.488,
+          "private_mib": 235.578,
+          "cpu_user_seconds": 37.40625,
+          "cpu_kernel_seconds": 0.921875,
+          "processes": [
+            {
+              "pid": 50984,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 205.48828125,
+              "private_mib": 235.578125,
+              "cpu_user_seconds": 37.40625,
+              "cpu_kernel_seconds": 0.921875
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 216.914,
+          "private_mib": 246.836
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 0.04117049998603761,
+            "cpu_user_seconds": 0.015625,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.015625,
+            "average_logical_cores": 0.37951931614381645,
+            "average_machine_percent": 1.1859978629494263
+          },
+          "idle": {
+            "wall_seconds": 2.0181013000255916,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "wall_seconds": 0.23248554999008775,
+            "cpu_user_seconds": 0.203125,
+            "cpu_kernel_seconds": 0.046875,
+            "cpu_total_seconds": 0.25,
+            "average_logical_cores": 1.0753356499389273,
+            "average_machine_percent": 3.3604239060591476
+          },
+          "warm": {
+            "wall_seconds": 11.465864199999487,
+            "cpu_user_seconds": 34.1875,
+            "cpu_kernel_seconds": 0.421875,
+            "cpu_total_seconds": 34.609375,
+            "average_logical_cores": 3.0184706879749674,
+            "average_machine_percent": 9.432720899921772
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.0160628499870654,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "warm_peak_250ms_logical_cores": 3.9023141957540433
+        },
+        "memory_sample_count": 358,
+        "batch_seconds": 11.450657600013074,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 65.165,
+            "server_ms": 63.971,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 161.324,
+            "server_ms": 160.354,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 254.643,
+            "server_ms": 253.468,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 838.835,
+            "server_ms": 816.911,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 141.415,
+            "server_ms": 140.209,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 134.06,
+            "server_ms": 118.354,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 159.521,
+            "server_ms": 158.49,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 89.522,
+            "server_ms": 88.405,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 165.3,
+            "server_ms": 150.513,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 258.264,
+            "server_ms": 256.805,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 826.974,
+            "server_ms": 803.519,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 171.058,
+            "server_ms": 132.777,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 137.8,
+            "server_ms": 136.09,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 206.638,
+            "server_ms": 188.737,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 96.956,
+            "server_ms": 84.197,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 80.454,
+            "server_ms": 65.815,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 268.705,
+            "server_ms": 253.553,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 834.39,
+            "server_ms": 801.759,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 175.546,
+            "server_ms": 156.186,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 150.633,
+            "server_ms": 119.967,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 166.218,
+            "server_ms": 165.216,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 89.267,
+            "server_ms": 88.217,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 68.024,
+            "server_ms": 66.74,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 176.77,
+            "server_ms": 153.713,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 816.755,
+            "server_ms": 814.999,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 139.221,
+            "server_ms": 138.085,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 122.743,
+            "server_ms": 121.68,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 178.116,
+            "server_ms": 163.453,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 102.581,
+            "server_ms": 90.255,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 65.036,
+            "server_ms": 64.062,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 145.412,
+            "server_ms": 144.162,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 258.087,
+            "server_ms": 256.92,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 170.578,
+            "server_ms": 138.213,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 116.458,
+            "server_ms": 115.485,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 177.482,
+            "server_ms": 160.454,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 94.682,
+            "server_ms": 91.495,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 77.488,
+            "server_ms": 64.456,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 155.972,
+            "server_ms": 144.233,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 242.793,
+            "server_ms": 241.525,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 845.912,
+            "server_ms": 821.836,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 131.642,
+            "server_ms": 117.431,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 178.755,
+            "server_ms": 167.054,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 94.859,
+            "server_ms": 93.634,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 122.677,
+            "server_ms": 80.02,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 167.849,
+            "server_ms": 166.563,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 267.225,
+            "server_ms": 250.644,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 796.256,
+            "server_ms": 794.745,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 177.978,
+            "server_ms": 162.584,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      },
+      {
+        "ready_ms": 36.994,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 208.214,
+          "server_ms": 181.213,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228789.35706935002,
+          "ws_mib": 10.082,
+          "private_mib": 2.73,
+          "cpu_user_seconds": 0.0,
+          "cpu_kernel_seconds": 0.0,
+          "processes": [
+            {
+              "pid": 43824,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 10.08203125,
+              "private_mib": 2.73046875,
+              "cpu_user_seconds": 0.0,
+              "cpu_kernel_seconds": 0.0
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228804.0893326,
+          "ws_mib": 204.406,
+          "private_mib": 235.387,
+          "cpu_user_seconds": 30.890625,
+          "cpu_kernel_seconds": 6.0,
+          "processes": [
+            {
+              "pid": 43824,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 204.40625,
+              "private_mib": 235.38671875,
+              "cpu_user_seconds": 30.890625,
+              "cpu_kernel_seconds": 6.0
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 215.789,
+          "private_mib": 246.602
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 0.044569100020453334,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "idle": {
+            "wall_seconds": 2.0305633500101976,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "wall_seconds": 0.22463534999405965,
+            "cpu_user_seconds": 0.125,
+            "cpu_kernel_seconds": 0.0625,
+            "cpu_total_seconds": 0.1875,
+            "average_logical_cores": 0.8346860812644061,
+            "average_machine_percent": 2.608394003951269
+          },
+          "warm": {
+            "wall_seconds": 11.431699899985688,
+            "cpu_user_seconds": 28.234375,
+            "cpu_kernel_seconds": 5.3125,
+            "cpu_total_seconds": 33.546875,
+            "average_logical_cores": 2.934548255596003,
+            "average_machine_percent": 9.17046329873751
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.0156819500261918,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "warm_peak_250ms_logical_cores": 3.776266491931358
+        },
+        "memory_sample_count": 360,
+        "batch_seconds": 11.416829299996607,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 79.042,
+            "server_ms": 73.908,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 165.03,
+            "server_ms": 151.869,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 268.984,
+            "server_ms": 245.081,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 808.805,
+            "server_ms": 807.211,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 164.03,
+            "server_ms": 138.902,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 134.162,
+            "server_ms": 117.439,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 187.005,
+            "server_ms": 163.517,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 88.912,
+            "server_ms": 86.761,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 163.931,
+            "server_ms": 150.058,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 274.44,
+            "server_ms": 258.433,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 859.805,
+            "server_ms": 822.353,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 153.883,
+            "server_ms": 134.211,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 142.226,
+            "server_ms": 128.021,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 177.173,
+            "server_ms": 162.254,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 91.454,
+            "server_ms": 88.379,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 89.906,
+            "server_ms": 67.69,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 242.76,
+            "server_ms": 241.72,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 800.516,
+            "server_ms": 798.871,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 177.163,
+            "server_ms": 149.178,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 134.444,
+            "server_ms": 133.502,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 174.038,
+            "server_ms": 168.267,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 103.99,
+            "server_ms": 85.791,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 60.153,
+            "server_ms": 59.217,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 149.944,
+            "server_ms": 148.967,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 827.545,
+            "server_ms": 825.734,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 152.992,
+            "server_ms": 137.936,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 128.42,
+            "server_ms": 127.383,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 164.763,
+            "server_ms": 163.564,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 87.933,
+            "server_ms": 86.744,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 78.204,
+            "server_ms": 64.356,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 153.341,
+            "server_ms": 152.304,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 252.843,
+            "server_ms": 251.587,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 172.389,
+            "server_ms": 142.959,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 130.549,
+            "server_ms": 118.19,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 162.715,
+            "server_ms": 161.596,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 89.571,
+            "server_ms": 88.456,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 71.775,
+            "server_ms": 62.473,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 158.154,
+            "server_ms": 157.08,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 261.072,
+            "server_ms": 243.276,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 806.877,
+            "server_ms": 793.004,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 144.526,
+            "server_ms": 143.514,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 215.26,
+            "server_ms": 176.935,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 95.466,
+            "server_ms": 94.3,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 60.527,
+            "server_ms": 59.521,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 153.936,
+            "server_ms": 151.893,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 286.891,
+            "server_ms": 261.157,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 840.129,
+            "server_ms": 819.495,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 142.078,
+            "server_ms": 140.963,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      },
+      {
+        "ready_ms": 38.234,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 200.41,
+          "server_ms": 168.401,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228869.0306806,
+          "ws_mib": 10.059,
+          "private_mib": 2.711,
+          "cpu_user_seconds": 0.0,
+          "cpu_kernel_seconds": 0.0,
+          "processes": [
+            {
+              "pid": 46672,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 10.05859375,
+              "private_mib": 2.7109375,
+              "cpu_user_seconds": 0.0,
+              "cpu_kernel_seconds": 0.0
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228885.00156424998,
+          "ws_mib": 204.184,
+          "private_mib": 234.977,
+          "cpu_user_seconds": 34.3125,
+          "cpu_kernel_seconds": 0.671875,
+          "processes": [
+            {
+              "pid": 46672,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 204.18359375,
+              "private_mib": 234.9765625,
+              "cpu_user_seconds": 34.3125,
+              "cpu_kernel_seconds": 0.671875
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 215.445,
+          "private_mib": 246.289
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 0.046615549974376336,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "idle": {
+            "wall_seconds": 2.015165650023846,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "wall_seconds": 0.2169239499780815,
+            "cpu_user_seconds": 0.21875,
+            "cpu_kernel_seconds": 0.03125,
+            "cpu_total_seconds": 0.25,
+            "average_logical_cores": 1.1524776311018703,
+            "average_machine_percent": 3.6014925971933445
+          },
+          "warm": {
+            "wall_seconds": 12.889504249993479,
+            "cpu_user_seconds": 32.015625,
+            "cpu_kernel_seconds": 0.359375,
+            "cpu_total_seconds": 32.375,
+            "average_logical_cores": 2.511733529240768,
+            "average_machine_percent": 7.849167278877401
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.0173740499885753,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "warm_peak_250ms_logical_cores": 3.6538513556909042
+        },
+        "memory_sample_count": 382,
+        "batch_seconds": 12.868990399991162,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 111.506,
+            "server_ms": 91.696,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 211.121,
+            "server_ms": 205.534,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 266.474,
+            "server_ms": 265.318,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 999.585,
+            "server_ms": 998.13,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 212.126,
+            "server_ms": 188.087,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 188.035,
+            "server_ms": 169.68,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 198.327,
+            "server_ms": 197.095,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 102.052,
+            "server_ms": 100.96,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 198.235,
+            "server_ms": 197.238,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 295.448,
+            "server_ms": 294.289,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 1001.781,
+            "server_ms": 994.263,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 186.557,
+            "server_ms": 174.155,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 154.469,
+            "server_ms": 153.463,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 207.259,
+            "server_ms": 193.793,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 112.49,
+            "server_ms": 105.528,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 94.907,
+            "server_ms": 84.623,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 289.18,
+            "server_ms": 278.228,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 963.097,
+            "server_ms": 961.61,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 157.7,
+            "server_ms": 144.118,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 167.278,
+            "server_ms": 141.034,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 183.403,
+            "server_ms": 180.018,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 92.929,
+            "server_ms": 91.536,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 94.19,
+            "server_ms": 79.761,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 181.94,
+            "server_ms": 169.057,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 888.77,
+            "server_ms": 887.099,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 141.223,
+            "server_ms": 140.076,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 138.885,
+            "server_ms": 137.897,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 215.39,
+            "server_ms": 186.202,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 114.832,
+            "server_ms": 86.087,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 89.553,
+            "server_ms": 76.197,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 197.876,
+            "server_ms": 192.299,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 296.303,
+            "server_ms": 295.179,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 164.845,
+            "server_ms": 163.972,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 180.676,
+            "server_ms": 163.349,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 199.132,
+            "server_ms": 196.287,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 102.235,
+            "server_ms": 91.667,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 57.294,
+            "server_ms": 56.32,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 186.078,
+            "server_ms": 185.133,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 285.104,
+            "server_ms": 258.518,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 854.669,
+            "server_ms": 843.318,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 129.398,
+            "server_ms": 127.141,
+            "code": 100,
+            "actual": "账户余额：￥1284.76\n项目0O11l-8B5S\n混合字形：截取舆識别\n参敷版本PP-OCRv3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 6
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 175.575,
+            "server_ms": 172.633,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREFA8W-9235-0M",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 1
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 91.759,
+            "server_ms": 90.526,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 87.39,
+            "server_ms": 76.189,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 176.208,
+            "server_ms": 157.236,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 1
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 280.633,
+            "server_ms": 252.444,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 880.399,
+            "server_ms": 864.117,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 175.333,
+            "server_ms": 159.127,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      }
+    ],
+    "rust_v6_tiny": [
+      {
+        "ready_ms": 34.162,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 120.401,
+          "server_ms": 92.466,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228780.7216684,
+          "ws_mib": 10.031,
+          "private_mib": 2.68,
+          "cpu_user_seconds": 0.015625,
+          "cpu_kernel_seconds": 0.0,
+          "processes": [
+            {
+              "pid": 34148,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 10.03125,
+              "private_mib": 2.6796875,
+              "cpu_user_seconds": 0.015625,
+              "cpu_kernel_seconds": 0.0
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228787.23835320002,
+          "ws_mib": 129.031,
+          "private_mib": 160.891,
+          "cpu_user_seconds": 7.890625,
+          "cpu_kernel_seconds": 1.546875,
+          "processes": [
+            {
+              "pid": 34148,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 129.03125,
+              "private_mib": 160.890625,
+              "cpu_user_seconds": 7.890625,
+              "cpu_kernel_seconds": 1.546875
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 140.008,
+          "private_mib": 171.539
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 0.041775349993258715,
+            "cpu_user_seconds": 0.015625,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.015625,
+            "average_logical_cores": 0.37402439482904165,
+            "average_machine_percent": 1.1688262338407551
+          },
+          "idle": {
+            "wall_seconds": 2.0296158499841113,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "wall_seconds": 0.13682805001735687,
+            "cpu_user_seconds": 0.03125,
+            "cpu_kernel_seconds": 0.0625,
+            "cpu_total_seconds": 0.09375,
+            "average_logical_cores": 0.6851665282674689,
+            "average_machine_percent": 2.1411454008358404
+          },
+          "warm": {
+            "wall_seconds": 3.8705325000337325,
+            "cpu_user_seconds": 7.25,
+            "cpu_kernel_seconds": 1.171875,
+            "cpu_total_seconds": 8.421875,
+            "average_logical_cores": 2.1758956939197907,
+            "average_machine_percent": 6.799674043499346
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.0173450500005856,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "warm_peak_250ms_logical_cores": 3.233728739467914
+        },
+        "memory_sample_count": 188,
+        "batch_seconds": 3.854185200005304,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 26.064,
+            "server_ms": 10.146,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 34.018,
+            "server_ms": 23.964,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 48.604,
+            "server_ms": 46.819,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 125.041,
+            "server_ms": 123.362,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 24.549,
+            "server_ms": 23.221,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 41.814,
+            "server_ms": 40.779,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 82.545,
+            "server_ms": 67.736,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 56.888,
+            "server_ms": 45.023,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 82.685,
+            "server_ms": 48.887,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 88.372,
+            "server_ms": 86.926,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 241.787,
+            "server_ms": 226.189,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 46.981,
+            "server_ms": 45.945,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 42.914,
+            "server_ms": 41.999,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 90.621,
+            "server_ms": 64.463,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 46.855,
+            "server_ms": 45.742,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 43.388,
+            "server_ms": 20.273,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 97.191,
+            "server_ms": 82.805,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 235.73,
+            "server_ms": 222.837,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 79.99,
+            "server_ms": 49.111,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 42.995,
+            "server_ms": 41.928,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 81.504,
+            "server_ms": 65.27,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 62.954,
+            "server_ms": 46.658,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 36.113,
+            "server_ms": 23.415,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 51.072,
+            "server_ms": 49.805,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 224.168,
+            "server_ms": 222.189,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 47.363,
+            "server_ms": 46.273,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 42.937,
+            "server_ms": 41.721,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 81.299,
+            "server_ms": 61.926,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 69.604,
+            "server_ms": 45.929,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 24.346,
+            "server_ms": 23.459,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 47.928,
+            "server_ms": 46.328,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 84.173,
+            "server_ms": 83.084,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 45.538,
+            "server_ms": 44.619,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 40.233,
+            "server_ms": 39.26,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 62.712,
+            "server_ms": 61.683,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 48.328,
+            "server_ms": 47.251,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 53.243,
+            "server_ms": 21.033,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 61.808,
+            "server_ms": 49.746,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 88.649,
+            "server_ms": 81.761,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 268.799,
+            "server_ms": 248.316,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 55.468,
+            "server_ms": 41.36,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 90.913,
+            "server_ms": 67.058,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 50.052,
+            "server_ms": 48.764,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 23.795,
+            "server_ms": 22.717,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 63.682,
+            "server_ms": 45.736,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 81.352,
+            "server_ms": 80.202,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 237.105,
+            "server_ms": 235.452,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 47.797,
+            "server_ms": 46.742,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      },
+      {
+        "ready_ms": 24.875,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 108.636,
+          "server_ms": 88.538,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228806.2337657,
+          "ws_mib": 10.039,
+          "private_mib": 2.625,
+          "cpu_user_seconds": 0.0,
+          "cpu_kernel_seconds": 0.015625,
+          "processes": [
+            {
+              "pid": 25980,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 10.0390625,
+              "private_mib": 2.625,
+              "cpu_user_seconds": 0.0,
+              "cpu_kernel_seconds": 0.015625
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228812.8138368,
+          "ws_mib": 129.312,
+          "private_mib": 161.109,
+          "cpu_user_seconds": 6.46875,
+          "cpu_kernel_seconds": 2.484375,
+          "processes": [
+            {
+              "pid": 25980,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 129.3125,
+              "private_mib": 161.109375,
+              "cpu_user_seconds": 6.46875,
+              "cpu_kernel_seconds": 2.484375
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 140.07,
+          "private_mib": 171.508
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 0.032628050015773624,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.015625,
+            "cpu_total_seconds": 0.015625,
+            "average_logical_cores": 0.4788824337478424,
+            "average_machine_percent": 1.4965076054620075
+          },
+          "idle": {
+            "wall_seconds": 2.0402791499800514,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "wall_seconds": 0.13357124998583458,
+            "cpu_user_seconds": 0.046875,
+            "cpu_kernel_seconds": 0.03125,
+            "cpu_total_seconds": 0.078125,
+            "average_logical_cores": 0.5848938301339941,
+            "average_machine_percent": 1.8277932191687316
+          },
+          "warm": {
+            "wall_seconds": 4.040885299997171,
+            "cpu_user_seconds": 6.078125,
+            "cpu_kernel_seconds": 2.109375,
+            "cpu_total_seconds": 8.1875,
+            "average_logical_cores": 2.0261649099532053,
+            "average_machine_percent": 6.331765343603767
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.017699199990602,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "warm_peak_250ms_logical_cores": 2.676484909075257
+        },
+        "memory_sample_count": 191,
+        "batch_seconds": 4.02517920001992,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 10.788,
+            "server_ms": 9.947,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 39.033,
+            "server_ms": 22.024,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 44.13,
+            "server_ms": 42.995,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 124.2,
+            "server_ms": 117.616,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 35.709,
+            "server_ms": 23.976,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 46.23,
+            "server_ms": 17.744,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 51.165,
+            "server_ms": 30.549,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 24.258,
+            "server_ms": 23.249,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 40.392,
+            "server_ms": 39.005,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 85.941,
+            "server_ms": 84.779,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 227.206,
+            "server_ms": 225.369,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 75.701,
+            "server_ms": 59.207,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 54.454,
+            "server_ms": 53.289,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 82.36,
+            "server_ms": 71.43,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 50.406,
+            "server_ms": 49.242,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 24.031,
+            "server_ms": 23.014,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 91.973,
+            "server_ms": 90.846,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 252.394,
+            "server_ms": 236.339,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 55.35,
+            "server_ms": 53.894,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 44.455,
+            "server_ms": 43.507,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 100.903,
+            "server_ms": 67.575,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 75.769,
+            "server_ms": 50.319,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 25.884,
+            "server_ms": 24.956,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 96.566,
+            "server_ms": 61.653,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 280.395,
+            "server_ms": 262.597,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 72.306,
+            "server_ms": 54.766,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 50.731,
+            "server_ms": 48.131,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 73.679,
+            "server_ms": 72.656,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 69.475,
+            "server_ms": 49.149,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 24.123,
+            "server_ms": 23.278,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 51.049,
+            "server_ms": 49.796,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 91.576,
+            "server_ms": 89.986,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 67.018,
+            "server_ms": 51.349,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 55.093,
+            "server_ms": 42.686,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 77.057,
+            "server_ms": 62.392,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 51.636,
+            "server_ms": 50.616,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 26.161,
+            "server_ms": 25.215,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 71.544,
+            "server_ms": 53.094,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 100.318,
+            "server_ms": 99.135,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 250.603,
+            "server_ms": 249.027,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 69.064,
+            "server_ms": 52.057,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 84.242,
+            "server_ms": 71.642,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 54.14,
+            "server_ms": 50.883,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 25.689,
+            "server_ms": 24.87,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 66.899,
+            "server_ms": 52.972,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 110.8,
+            "server_ms": 94.51,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 297.144,
+            "server_ms": 257.852,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 55.754,
+            "server_ms": 53.908,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      },
+      {
+        "ready_ms": 21.304,
+        "first": {
+          "fixture": "compact",
+          "wall_ms": 88.806,
+          "server_ms": 87.732,
+          "code": 100,
+          "actual": "离线文字识别\n本地测试 ABC 123",
+          "blocks": 2,
+          "expected_chars": 16,
+          "character_edits": 0
+        },
+        "idle": {
+          "monotonic_seconds": 228837.45802435,
+          "ws_mib": 10.105,
+          "private_mib": 2.758,
+          "cpu_user_seconds": 0.0,
+          "cpu_kernel_seconds": 0.015625,
+          "processes": [
+            {
+              "pid": 11732,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 10.10546875,
+              "private_mib": 2.7578125,
+              "cpu_user_seconds": 0.0,
+              "cpu_kernel_seconds": 0.015625
+            }
+          ]
+        },
+        "loaded": {
+          "monotonic_seconds": 228844.09104635,
+          "ws_mib": 128.809,
+          "private_mib": 160.961,
+          "cpu_user_seconds": 6.8125,
+          "cpu_kernel_seconds": 2.359375,
+          "processes": [
+            {
+              "pid": 11732,
+              "name": "WfZiUiBp.exe",
+              "ws_mib": 128.80859375,
+              "private_mib": 160.9609375,
+              "cpu_user_seconds": 6.8125,
+              "cpu_kernel_seconds": 2.359375
+            }
+          ]
+        },
+        "peak": {
+          "ws_mib": 139.613,
+          "private_mib": 171.352
+        },
+        "cpu": {
+          "startup": {
+            "wall_seconds": 0.029625850002048537,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.015625,
+            "cpu_total_seconds": 0.015625,
+            "average_logical_cores": 0.5274110278327737,
+            "average_machine_percent": 1.6481594619774178
+          },
+          "idle": {
+            "wall_seconds": 2.024669000005815,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "first": {
+            "wall_seconds": 0.10411459999158978,
+            "cpu_user_seconds": 0.09375,
+            "cpu_kernel_seconds": 0.046875,
+            "cpu_total_seconds": 0.140625,
+            "average_logical_cores": 1.3506751215618125,
+            "average_machine_percent": 4.220859754880664
+          },
+          "warm": {
+            "wall_seconds": 4.053549500007648,
+            "cpu_user_seconds": 6.25,
+            "cpu_kernel_seconds": 1.984375,
+            "cpu_total_seconds": 8.234375,
+            "average_logical_cores": 2.031398654434703,
+            "average_machine_percent": 6.348120795108447
+          },
+          "loaded_idle": {
+            "wall_seconds": 2.0310560000070836,
+            "cpu_user_seconds": 0.0,
+            "cpu_kernel_seconds": 0.0,
+            "cpu_total_seconds": 0.0,
+            "average_logical_cores": 0.0,
+            "average_machine_percent": 0.0
+          },
+          "warm_peak_250ms_logical_cores": 2.846284969498091
+        },
+        "memory_sample_count": 190,
+        "batch_seconds": 4.03772829999798,
+        "samples": [
+          {
+            "fixture": "compact",
+            "wall_ms": 23.175,
+            "server_ms": 10.075,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 22.927,
+            "server_ms": 21.871,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 48.571,
+            "server_ms": 47.468,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 120.918,
+            "server_ms": 117.807,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 37.556,
+            "server_ms": 23.519,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 48.305,
+            "server_ms": 18.81,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 43.192,
+            "server_ms": 32.426,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 26.79,
+            "server_ms": 25.336,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 34.506,
+            "server_ms": 33.396,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 93.506,
+            "server_ms": 84.022,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 249.168,
+            "server_ms": 237.433,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 48.86,
+            "server_ms": 47.758,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 45.19,
+            "server_ms": 44.195,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 109.426,
+            "server_ms": 67.126,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 66.905,
+            "server_ms": 50.277,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 32.621,
+            "server_ms": 21.625,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 95.014,
+            "server_ms": 80.439,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 260.12,
+            "server_ms": 239.528,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 67.506,
+            "server_ms": 49.604,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 55.91,
+            "server_ms": 41.557,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 98.542,
+            "server_ms": 67.135,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 82.224,
+            "server_ms": 48.255,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 22.559,
+            "server_ms": 21.652,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 50.453,
+            "server_ms": 49.159,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 245.537,
+            "server_ms": 238.664,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 90.576,
+            "server_ms": 55.657,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 53.059,
+            "server_ms": 51.803,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 90.125,
+            "server_ms": 74.364,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 51.498,
+            "server_ms": 50.192,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 33.996,
+            "server_ms": 23.993,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 64.757,
+            "server_ms": 50.374,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 96.705,
+            "server_ms": 95.54,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 78.791,
+            "server_ms": 51.956,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 50.556,
+            "server_ms": 49.293,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 75.807,
+            "server_ms": 74.684,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 50.85,
+            "server_ms": 49.761,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 36.139,
+            "server_ms": 20.716,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 80.847,
+            "server_ms": 55.109,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 91.708,
+            "server_ms": 90.233,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 247.045,
+            "server_ms": 245.333,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "tiny_noise",
+            "wall_ms": 44.431,
+            "server_ms": 43.441,
+            "code": 100,
+            "actual": "账户余额￥1284.76\n项目0O11l-8B5S\n混合字形：截取與識别\n參數版本 PP-OCR v3/v6",
+            "blocks": 4,
+            "expected_chars": 49,
+            "character_edits": 2
+          },
+          {
+            "fixture": "tilted",
+            "wall_ms": 83.636,
+            "server_ms": 64.169,
+            "code": 100,
+            "actual": "倾斜票据316.82元\n款项状态：已支付\nREF A8W-9235-OM",
+            "blocks": 3,
+            "expected_chars": 33,
+            "character_edits": 0
+          },
+          {
+            "fixture": "blank",
+            "wall_ms": 50.095,
+            "server_ms": 49.087,
+            "code": 101,
+            "actual": "",
+            "blocks": 0,
+            "expected_chars": 0,
+            "character_edits": 0
+          },
+          {
+            "fixture": "compact",
+            "wall_ms": 30.748,
+            "server_ms": 25.783,
+            "code": 100,
+            "actual": "离线文字识别\n本地测试 ABC 123",
+            "blocks": 2,
+            "expected_chars": 16,
+            "character_edits": 0
+          },
+          {
+            "fixture": "english",
+            "wall_ms": 72.865,
+            "server_ms": 60.449,
+            "code": 100,
+            "actual": "Offline OCR benchmark\nInvoice number 20261106\nThe quick brown fox jumps.",
+            "blocks": 3,
+            "expected_chars": 62,
+            "character_edits": 0
+          },
+          {
+            "fixture": "chinese",
+            "wall_ms": 118.182,
+            "server_ms": 102.817,
+            "code": 100,
+            "actual": "文字识别对照样本\n项目状态：编译成功\n截图坐标和文本置信度\n云端与本地计算\n订单编号3618027",
+            "blocks": 5,
+            "expected_chars": 45,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dense",
+            "wall_ms": 257.481,
+            "server_ms": 255.915,
+            "code": 100,
+            "actual": "第01行\n系统功能和性能测试\nOCR 3585\n第02行\n系统功能和性能测试\nOCR 4098\n第03行\n系统功能和性能测试\nOCR 4611\n第04行\n系统功能和性能测试\nOCR 5124\n第05行\n系统功能和性能测试\nOCR 5637\n第06行\n系统功能和性能测试\nOCR 6150\n第07行\n系统功能和性能测试\nOCR 6663\n第08行\n系统功能和性能测试\nOCR 7176\n第09行\n系统功能和性能测试\nOCR 7689\n第10行\n系统功能和性能测试\nOCR 8202\n第11行\n系统功能和性能测试\nOCR 8715",
+            "blocks": 33,
+            "expected_chars": 220,
+            "character_edits": 0
+          },
+          {
+            "fixture": "dim",
+            "wall_ms": 73.457,
+            "server_ms": 57.245,
+            "code": 100,
+            "actual": "灰色文字测试\n可读性与文本检测\nContrast level 42%",
+            "blocks": 3,
+            "expected_chars": 30,
+            "character_edits": 0
+          }
+        ]
+      }
+    ]
+  }
+}

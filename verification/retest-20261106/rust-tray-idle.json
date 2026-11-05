@@ -1,0 +1,99 @@
+{
+  "method": "Fresh Rust native tray via --hide with F4 disabled and isolated profile; no main window opened. Idle interval begins when the desktop command window is ready.",
+  "sha256": "4a2c96ac2e4b81e6ebc2dd24609b03398971b64528ce80ebe2d448aa31305d57",
+  "runtime_sidecars_sha256": {
+    "msvcp140.dll": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+    "msvcp140_1.dll": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+    "vcruntime140.dll": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+    "vcruntime140_1.dll": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+  },
+  "idle_seconds": 2.0,
+  "median": {
+    "ready_ms": 35.87710001738742,
+    "ws_mib": 11.336,
+    "private_mib": 2.465,
+    "cpu_total_seconds": 0.0,
+    "average_logical_cores": 0.0,
+    "average_machine_percent": 0.0
+  },
+  "trials": [
+    {
+      "ready_ms": 46.250400017015636,
+      "monotonic_seconds": 228498.07092149998,
+      "ws_mib": 12.199,
+      "private_mib": 2.504,
+      "cpu_user_seconds": 0.0,
+      "cpu_kernel_seconds": 0.015625,
+      "processes": [
+        {
+          "pid": 44556,
+          "name": "WfZiUiBp.exe",
+          "ws_mib": 12.19921875,
+          "private_mib": 2.50390625,
+          "cpu_user_seconds": 0.0,
+          "cpu_kernel_seconds": 0.015625
+        }
+      ],
+      "idle_cpu": {
+        "wall_seconds": 2.0090287999773864,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.0,
+        "cpu_total_seconds": 0.0,
+        "average_logical_cores": 0.0,
+        "average_machine_percent": 0.0
+      }
+    },
+    {
+      "ready_ms": 35.87710001738742,
+      "monotonic_seconds": 228500.19886585,
+      "ws_mib": 11.336,
+      "private_mib": 2.465,
+      "cpu_user_seconds": 0.0,
+      "cpu_kernel_seconds": 0.015625,
+      "processes": [
+        {
+          "pid": 32096,
+          "name": "WfZiUiBp.exe",
+          "ws_mib": 11.3359375,
+          "private_mib": 2.46484375,
+          "cpu_user_seconds": 0.0,
+          "cpu_kernel_seconds": 0.015625
+        }
+      ],
+      "idle_cpu": {
+        "wall_seconds": 2.0130197999824304,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.0,
+        "cpu_total_seconds": 0.0,
+        "average_logical_cores": 0.0,
+        "average_machine_percent": 0.0
+      }
+    },
+    {
+      "ready_ms": 21.270600002026185,
+      "monotonic_seconds": 228502.35169965,
+      "ws_mib": 11.332,
+      "private_mib": 2.465,
+      "cpu_user_seconds": 0.0,
+      "cpu_kernel_seconds": 0.015625,
+      "processes": [
+        {
+          "pid": 31472,
+          "name": "WfZiUiBp.exe",
+          "ws_mib": 11.33203125,
+          "private_mib": 2.46484375,
+          "cpu_user_seconds": 0.0,
+          "cpu_kernel_seconds": 0.015625
+        }
+      ],
+      "idle_cpu": {
+        "wall_seconds": 2.0147703000111505,
+        "cpu_user_seconds": 0.0,
+        "cpu_kernel_seconds": 0.0,
+        "cpu_total_seconds": 0.0,
+        "average_logical_cores": 0.0,
+        "average_machine_percent": 0.0
+      }
+    }
+  ]
+}
