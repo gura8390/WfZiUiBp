@@ -1,0 +1,11 @@
+{
+  "source": "https://pypi.org/project/onnxruntime/1.24.2/",
+  "wheel": "onnxruntime-1.24.2-cp312-cp312-win_amd64.whl",
+  "wheel_sha256": "ebcee9276420a65e5fa08b05f18379c2271b5992617e5bdc0d0d6c5ea395c1a1",
+  "files": {
+    "ONNX-Runtime-LICENSE.txt": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+    "ONNX-Runtime-ThirdPartyNotices.txt": "fb0af774b4d7cffc5b9d046f2aaeade2f37df2f80abf8033c95dfffcc77a8866",
+    "onnxruntime.dll": "d9b87625301f25cf2a8f6e5a75f81c8ae902a9feef48336d7053e86a62c24304",
+    "onnxruntime_providers_shared.dll": "a7d0b1d9529777e860574643f307e949a8bf7d96f004fd326ed5b6894ad660ec"
+  }
+}

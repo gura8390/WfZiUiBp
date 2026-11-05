@@ -1,0 +1,2 @@
+# The package checks upstream model and dictionary bytes against their SHA-256 values.
+models/** -text

@@ -1,0 +1,2 @@
+# Preserve the downloaded bytes used by the SHA-256 manifest.
+*.txt -text

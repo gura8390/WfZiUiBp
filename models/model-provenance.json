@@ -1,0 +1,82 @@
+{
+  "source_release": "https://github.com/hiroi-sora/Umi-OCR/releases/tag/v2.1.5",
+  "converter_sha256": "5b260db5408310da59aca6b0a9153da660640ccad1715ea9777543b07c53b6b2",
+  "requested_opset": 11,
+  "automatic_opset_upgrade": true,
+  "assets": {
+    "det.onnx": {
+      "source": "ch_PP-OCRv3_det_infer",
+      "converter": "paddle2onnx.dll bundled in Umi-OCR",
+      "paddle_model_sha256": "74b075e6cfbc8206dab2eee86a6a8bd015a7be612b2bf6d1a1ef878d31df84f7",
+      "paddle_weights_sha256": "7e9518c6ab706fe87842a8de1c098f990e67f9212b67c9ef8bc4bca6dc17b91a",
+      "sha256": "75aede9eaf29cc989067b5a9d6a8f0fa347f00d9fc71a573b7762c46340c209e"
+    },
+    "cls.onnx": {
+      "source": "ch_ppocr_mobile_v2.0_cls_infer",
+      "converter": "paddle2onnx.dll bundled in Umi-OCR, 48\u00d7192 input shape via Paddle2ONNX wheel 1.3.1",
+      "paddle_model_sha256": "9fa20a45c21feb2bf68a08459feaee4008bcb9ac72aa86ed9d858e063a627a53",
+      "paddle_weights_sha256": "4837832ace0e71df968caeb1fbd0dae3a4105a015712a139b110c9a5b99bd23a",
+      "sha256": "7ef30c01ea8853fc78cea78f007fa55ca64a077c1361d4e820fe917995a90be2"
+    },
+    "rec_chinese.onnx": {
+      "source": "ch_PP-OCRv3_rec_infer",
+      "converter": "paddle2onnx.dll bundled in Umi-OCR",
+      "paddle_model_sha256": "b9beb0b9520d34bde2a0f92581ed64db7e4d6c76abead8b859189ea72db9ee20",
+      "paddle_weights_sha256": "d99d4279f7c64471b8f0be426ee09a46c0f1ecb344406bf0bb9571f670e8d0c7",
+      "sha256": "18fab497578088c819ee48c1b21607ee6980fcb19f406ea5d108811a78e75175"
+    },
+    "dict_chinese.txt": {
+      "sha256": "28b2362ad4ab2dc38769aa72feb535e3a9ddb3fd2a7585a05920e6393b1dc7f7"
+    },
+    "rec_chinese_cht.onnx": {
+      "source": "chinese_cht_mobile_v2.0_rec_infer",
+      "converter": "Paddle2ONNX wheel 1.3.1, input width made dynamic",
+      "paddle_model_sha256": "0cbf3dc2be6166647949878f9bc8640e2bd147f12c7238b1bf0fa40472035453",
+      "paddle_weights_sha256": "6b6d4ab87f8c022cbefda6d6bead89847fc420d0cf50d5fb7466829451b63a1d",
+      "sha256": "a2642dbc1e56b4aa9deb0a9c7915a4febef7f9851d43b7689c4738784b612bca"
+    },
+    "dict_chinese_cht.txt": {
+      "sha256": "832551fee1f2fbc97508772d81ebdc8dba12c00de97a35c71c9ddf43ddac1a83"
+    },
+    "rec_en.onnx": {
+      "source": "en_PP-OCRv3_rec_infer",
+      "converter": "paddle2onnx.dll bundled in Umi-OCR",
+      "paddle_model_sha256": "f0288362f754e815030929477f7b1f96fe2e913e197537288a01bd43f768d0ab",
+      "paddle_weights_sha256": "2cea2de604d8a75fd9151b54ea2dd027659fb8cb777cde377224581110dbff13",
+      "sha256": "d454358511775b025cc71913b53b47f227f6842e7ab541ffd3a47e072c578ada"
+    },
+    "dict_en.txt": {
+      "sha256": "5662df9d2d03f0e8ca0d3b0649d6acbab904b6a14b3d3521463c71c37c668ce3"
+    },
+    "rec_japan.onnx": {
+      "source": "japan_PP-OCRv3_rec_infer",
+      "converter": "paddle2onnx.dll bundled in Umi-OCR",
+      "paddle_model_sha256": "19d399099a85e0610d489cb5dd4e39f7fa7700e0ed8bfe083a788a7422a9babe",
+      "paddle_weights_sha256": "e137a00dee48b713bd88aeacf02d01fc3d32b49f7e4d4d9ecfeaf92b59644ca4",
+      "sha256": "014c6c518c0c36d633dea2d7be2f7cf6317f1da5873b4a05561d87c6a7f005cb"
+    },
+    "dict_japan.txt": {
+      "sha256": "1dcfcb41eec90576a945b3084f22ade11ced506e24f14879245b071698f308e8"
+    },
+    "rec_korean.onnx": {
+      "source": "korean_PP-OCRv3_rec_infer",
+      "converter": "paddle2onnx.dll bundled in Umi-OCR",
+      "paddle_model_sha256": "3308556362e7f225b62a3bcac06ce90914082d814c78496fa4b206f4df2b6913",
+      "paddle_weights_sha256": "b08f266ec3f6ea687a089677146cefddee6d6e823abb2aeb66667be0e3707a4b",
+      "sha256": "235afc79e6019c131bee03e0536f9a095923406407b198731e3b8f3045e77cb9"
+    },
+    "dict_korean.txt": {
+      "sha256": "aa1fdc8ae8f7cd40a0ec4edb472eb0421e11427e6ccfee9915440742c18b0a20"
+    },
+    "rec_cyrillic.onnx": {
+      "source": "cyrillic_PP-OCRv3_rec_infer",
+      "converter": "paddle2onnx.dll bundled in Umi-OCR",
+      "paddle_model_sha256": "377bee205d0ba2d401cb463c300366ab87b2373b45dd9c8e3b560166b064beee",
+      "paddle_weights_sha256": "2ef815afbb8970610618561946ce86faf60745ada64cd316ed34bfe34bdbf46f",
+      "sha256": "7b19a775eeaaaaf2da6c2940ea1e157874432a7a033fd2df863aa8046b30ad42"
+    },
+    "dict_cyrillic.txt": {
+      "sha256": "369a82c6c8c479784a5d726448b83b1eafb5fef0a4129a5eaa3929625ddcd132"
+    }
+  }
+}

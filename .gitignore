@@ -1,0 +1,10 @@
+/target/
+/dist/
+/tools/__pycache__/
+/verification/*
+!/verification/fixtures/
+!/verification/benchmark-v020-release-4threads.json
+!/verification/benchmark-v020-release-16threads.json
+!/verification/desktop-idle-v020-release.json
+!/verification/a11y-release.json
+!/verification/http-release.json
