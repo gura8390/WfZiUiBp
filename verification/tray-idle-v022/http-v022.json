@@ -1,0 +1,35 @@
+{
+  "sha256": "5da203edce5140345f31339060ff84ca0b473c8fff0674b39d5e70accf3dc1b6",
+  "ocr_text": "离线文字识别 本地测试 ABC 123\n",
+  "barcode_roundtrip": [
+    {
+      "format": "QRCode",
+      "options": {}
+    },
+    {
+      "format": "QRCode",
+      "options": {
+        "w": 320,
+        "h": 320,
+        "quiet_zone": 3,
+        "ec_level": 2
+      }
+    },
+    {
+      "format": "Code128",
+      "options": {
+        "w": 420,
+        "h": 100,
+        "quiet_zone": 12
+      }
+    }
+  ],
+  "document_pages": 1,
+  "exports": [
+    "ocr-plain.txt",
+    "ocr-text.pdf",
+    "ocr.pdf"
+  ],
+  "document_clear": "404 on former download URL",
+  "password_protected_pdf": "missing password rejected, correct password recognized one page"
+}

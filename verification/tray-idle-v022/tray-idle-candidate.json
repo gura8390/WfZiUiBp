@@ -1,0 +1,223 @@
+{
+    "executable_sha256":  "5da203edce5140345f31339060ff84ca0b473c8fff0674b39d5e70accf3dc1b6",
+    "fixture_sha256":  "cd0888494df5715ccd1349ab03e1cdb60934b586646f289125b67e75fdb000e3",
+    "method":  "Windows UI Automation, process-bound controls, fresh profile, semantic patterns and app CLI only",
+    "checks":  [
+                   {
+                       "name":  "initial tab strip",
+                       "detail":  [
+                                      "窗口置顶",
+                                      "截图OCR",
+                                      "新建标签页（Ctrl+T）",
+                                      "锁定标签页"
+                                  ]
+                   },
+                   {
+                       "name":  "activate 新建标签页（Ctrl+T）",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate 批量OCR",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate a11y-fixture.png，待处理",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate 开始识别列表中的文件",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "batch OCR text exposed through TextPattern",
+                       "detail":  "离线文字识别 本地测试 ABC 123\n"
+                   },
+                   {
+                       "name":  "select OCR result through TextPattern",
+                       "detail":  "离线文字识别 本地测试 ABC 123\n"
+                   },
+                   {
+                       "name":  "edit OCR history through ValuePattern",
+                       "detail":  "set and read back"
+                   },
+                   {
+                       "name":  "activate 新建标签页（Ctrl+T）",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate 批量文档",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "PDF queue accessibility labels",
+                       "detail":  [
+                                      {
+                                          "name":  "文档识别进度",
+                                          "type":  "ControlType.ProgressBar"
+                                      },
+                                      {
+                                          "name":  "文档",
+                                          "type":  "ControlType.Text"
+                                      },
+                                      {
+                                          "name":  "状态",
+                                          "type":  "ControlType.Text"
+                                      },
+                                      {
+                                          "name":  "页数",
+                                          "type":  "ControlType.Text"
+                                      },
+                                      {
+                                          "name":  "打开文档",
+                                          "type":  "ControlType.Button"
+                                      },
+                                      {
+                                          "name":  "设置",
+                                          "type":  "ControlType.Button"
+                                      },
+                                      {
+                                          "name":  "记录",
+                                          "type":  "ControlType.Button"
+                                      }
+                                  ]
+                   },
+                   {
+                       "name":  "activate a11y-fixture.pdf，待处理",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate 开始识别列表中的文件",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "batch PDF staged, opened and processed",
+                       "detail":  "WF A11Y PDF TEXT 20261106\n"
+                   },
+                   {
+                       "name":  "activate 新建标签页（Ctrl+T）",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate 二维码",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "QR settings accessibility labels",
+                       "detail":  [
+                                      {
+                                          "name":  "设置",
+                                          "type":  "ControlType.Button"
+                                      },
+                                      {
+                                          "name":  "记录",
+                                          "type":  "ControlType.Button"
+                                      },
+                                      {
+                                          "name":  "生成",
+                                          "type":  "ControlType.Button"
+                                      },
+                                      {
+                                          "name":  "扫描二维码 / 条形码",
+                                          "type":  "ControlType.Text"
+                                      },
+                                      {
+                                          "name":  "生成二维码 / 条形码",
+                                          "type":  "ControlType.Text"
+                                      },
+                                      {
+                                          "name":  "码制",
+                                          "type":  "ControlType.Text"
+                                      }
+                                  ]
+                   },
+                   {
+                       "name":  "activate 记录",
+                       "detail":  "Toggle"
+                   },
+                   {
+                       "name":  "QR history accessibility labels",
+                       "detail":  [
+                                      {
+                                          "name":  "记录",
+                                          "type":  "ControlType.Button"
+                                      },
+                                      {
+                                          "name":  "暂无记录",
+                                          "type":  "ControlType.Text"
+                                      }
+                                  ]
+                   },
+                   {
+                       "name":  "activate 生成",
+                       "detail":  "Toggle"
+                   },
+                   {
+                       "name":  "QR generation accessibility labels",
+                       "detail":  [
+                                      {
+                                          "name":  "自动刷新",
+                                          "type":  "ControlType.CheckBox"
+                                      },
+                                      {
+                                          "name":  "刷新",
+                                          "type":  "ControlType.Button"
+                                      },
+                                      {
+                                          "name":  "二维码内容",
+                                          "type":  "ControlType.Edit"
+                                      }
+                                  ]
+                   },
+                   {
+                       "name":  "activate 刷新",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "edit QR content through ValuePattern",
+                       "detail":  "set, read back, refresh and locate generated QR preview"
+                   },
+                   {
+                       "name":  "activate 新建标签页（Ctrl+T）",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate 全局设置",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "activate 高级",
+                       "detail":  "Invoke"
+                   },
+                   {
+                       "name":  "global settings and advanced disclosure",
+                       "detail":  "visible control names confirmed"
+                   },
+                   {
+                       "name":  "close to tray",
+                       "detail":  {
+                                      "shell_tray_bounds":  [
+                                                                1482,
+                                                                1510,
+                                                                1530,
+                                                                1600
+                                                            ],
+                                      "action":  "WindowPattern.Close"
+                                  }
+                   },
+                   {
+                       "name":  "idle CPU after closing to tray",
+                       "detail":  {
+                                      "cpu_ms":  0,
+                                      "wall_ms":  5007.959,
+                                      "cpu_ms_per_wall_second":  0,
+                                      "limit_cpu_ms_per_wall_second":  150,
+                                      "passed":  true
+                                  }
+                   },
+                   {
+                       "name":  "restore from tray",
+                       "detail":  "same PID 28656"
+                   }
+               ],
+    "success":  true
+}

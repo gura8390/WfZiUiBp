@@ -15,3 +15,8 @@
 !/verification/retest-20261106/ocr-4threads-repeat.json
 !/verification/retest-20261106/ocr-16threads.json
 !/verification/retest-20261106/rust-tray-idle.json
+!/verification/tray-idle-v022/
+/verification/tray-idle-v022/*
+!/verification/tray-idle-v022/tray-idle-baseline.json
+!/verification/tray-idle-v022/tray-idle-candidate.json
+!/verification/tray-idle-v022/http-v022.json

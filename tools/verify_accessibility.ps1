@@ -4,7 +4,8 @@ param(
     [string]$Executable,
     [string]$Output,
     [string]$Fixture,
-    [switch]$RequireTextEditing
+    [switch]$RequireTextEditing,
+    [switch]$VerifyTrayIdleCpu
 )
 
 $ErrorActionPreference = 'Stop'
@@ -22,6 +23,8 @@ public static class WfZiUiBpQaWindow {
     public static extern IntPtr FindWindow(string className, string windowName);
     [DllImport("user32.dll")]
     public static extern uint GetWindowThreadProcessId(IntPtr window, out uint processId);
+    [DllImport("user32.dll")]
+    public static extern bool IsWindowVisible(IntPtr window);
     [StructLayout(LayoutKind.Sequential)]
     private struct TrayIdentifier {
         public uint Size;
@@ -319,6 +322,12 @@ try {
     Add-Check 'global settings and advanced disclosure' 'visible control names confirmed'
 
     $window = Get-AppWindow
+    if ($VerifyTrayIdleCpu) {
+        $mainWindow = [IntPtr]::new([long]$window.Current.NativeWindowHandle)
+        if ($mainWindow -eq [IntPtr]::Zero -or -not [WfZiUiBpQaWindow]::IsWindowVisible($mainWindow)) {
+            throw 'No visible native main window to verify before closing to the tray.'
+        }
+    }
     $windowPattern = Get-Pattern $window ([System.Windows.Automation.WindowPattern]::Pattern)
     if ($null -ne $windowPattern) {
         $windowPattern.Close()
@@ -333,6 +342,42 @@ try {
         if ($handle -ne [IntPtr]::Zero -and (Get-ControlWindowOwner) -eq $script:Process.Id) { [WfZiUiBpQaWindow]::GetTrayBounds($handle) }
     } 'the isolated process tray icon registered in the Windows shell'
     Add-Check 'close to tray' @{ action = $closePattern; shell_tray_bounds = $trayBounds }
+
+    if ($VerifyTrayIdleCpu) {
+        $nativeWindowHidden = {
+            [uint32]$windowOwner = 0
+            [void][WfZiUiBpQaWindow]::GetWindowThreadProcessId($mainWindow, [ref]$windowOwner)
+            $windowOwner -eq $script:Process.Id -and -not [WfZiUiBpQaWindow]::IsWindowVisible($mainWindow)
+        }
+        [void](Wait-For $nativeWindowHidden 'the same native main window hidden to the tray')
+        Start-Sleep -Milliseconds 500
+        if ($script:Process.HasExited -or -not (& $nativeWindowHidden)) {
+            throw 'The isolated process did not stay hidden to the tray before CPU sampling.'
+        }
+        $script:Process.Refresh()
+        $startCpu = $script:Process.TotalProcessorTime
+        $clock = [System.Diagnostics.Stopwatch]::StartNew()
+        Start-Sleep -Seconds 5
+        $script:Process.Refresh()
+        if ($script:Process.HasExited -or -not (& $nativeWindowHidden)) {
+            throw 'The isolated process did not stay hidden to the tray during CPU sampling.'
+        }
+        $cpuMs = ($script:Process.TotalProcessorTime - $startCpu).TotalMilliseconds
+        $clock.Stop()
+        $cpuRate = $cpuMs / $clock.Elapsed.TotalSeconds
+        $limit = 150
+        Add-Check 'idle CPU after closing to tray' ([ordered]@{
+            cpu_ms = [Math]::Round($cpuMs, 3)
+            wall_ms = [Math]::Round($clock.Elapsed.TotalMilliseconds, 3)
+            cpu_ms_per_wall_second = [Math]::Round($cpuRate, 3)
+            limit_cpu_ms_per_wall_second = $limit
+            passed = $cpuRate -lt $limit
+        })
+        if ($cpuRate -ge $limit) {
+            throw ('Tray idle CPU used {0:F1} ms per wall second, exceeding the {1} ms limit.' -f $cpuRate, $limit)
+        }
+    }
+
     Send-AppCommand -Arguments @('--show')
     [void](Wait-For { Get-AppWindow } 'the same process main window restored via CLI')
     [void](Wait-For { Find-Control '^全局设置$' -Actionable } 'the previously open settings tab after restore')

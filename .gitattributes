@@ -3,3 +3,4 @@ models/** -text
 
 # Preserve the exact bytes of the original retest files.
 verification/retest-20261106/** -text
+verification/tray-idle-v022/*.json -text whitespace=cr-at-eol

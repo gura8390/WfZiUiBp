@@ -23,6 +23,7 @@ use std::{
 };
 
 mod batch_panel;
+mod event_loop;
 mod settings_panel;
 mod workspace;
 
@@ -221,12 +222,11 @@ pub fn run(mut launch: Launch) -> Result<()> {
         viewport,
         ..Default::default()
     };
-    eframe::run_native(
+    event_loop::run(
         "文字识别 · WfZiUiBp",
         options,
         Box::new(move |cc| Ok(Box::new(App::new(cc, launch, settings, native)))),
     )
-    .map_err(|error| anyhow::anyhow!(error.to_string()))
 }
 
 struct App {
